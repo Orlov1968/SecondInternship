@@ -15,3 +15,15 @@ def add_moving_average(data, window_size=5):
 def calculate_and_display_average_price(data):
     average_price = data['Close'].meane()
     print(average_price)
+
+
+def notify_if_strong_fluctuations(data, threshold):
+    """Функция принимает значения котировок акций за указанный период и допустимый
+    порог колебания стоимости акций за этот же период. Выполняется вычисление разницы
+    между максимальным и минимальным значением стоимости акций за период.
+     Если разница превысила указанный порог, пользователь получает об этом информацию"""
+    maximum_value_of_promotion = data['Close'].max()
+    minimum_value_of_promotion = data['Close'].min()
+    threshold_for_promotion = maximum_value_of_promotion - minimum_value_of_promotion
+    if threshold_for_promotion >= threshold:
+        print(f'Колебания акций за указанный период превысили установленный порог в {threshold} пунктов')
