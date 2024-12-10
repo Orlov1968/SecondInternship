@@ -27,5 +27,6 @@ def notify_if_strong_fluctuations(data, threshold):
     threshold_for_promotion = maximum_value_of_promotion - minimum_value_of_promotion
     if threshold_for_promotion >= threshold:
         print(f'Колебания акций за указанный период превысили установленный порог в {threshold} пунктов')
+    # return
     else:
         print(f'Колебания акций за период не превысили заданный диапазон')
