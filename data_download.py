@@ -30,3 +30,11 @@ def notify_if_strong_fluctuations(data, threshold):
     # return
     else:
         print(f'Колебания акций за период не превысили заданный диапазон')
+
+
+def export_data_to_csv(data, filename):
+    """Функция принимает Data Frame и имя файла, в который будем сохранять значения котировок.
+    Затем переносим значения котировок из Data Frame в указанный файл, в качестве
+    разделителя используем ",", индекс включён (если не будем включать индекс, ставим False)."""
+    data.to_csv(filename, sep=',', index=True, encoding='utf-8')
+    return filename
