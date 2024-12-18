@@ -1,4 +1,4 @@
-import delta
+
 import yfinance as yf
 
 
@@ -42,6 +42,9 @@ def export_data_to_csv(data, filename):
 
 
 def rsi_calculate(data, period=14):
+    """Для расчёта индекса RSI принят период 14 дней. На вход функция принимает Data Frame
+    со столбцом цена акции. По формуле расчёта RSI вычисляю его значение за 14 дней.
+    Добавляю столбец 'RSI'"""
     diff_axis = data['Close'].diff()
     upemane = (diff_axis.where(diff_axis > 0, 0)).rolling(window=period).mean()
     downmane = (-diff_axis.where(diff_axis < 0, 0)).rolling(window=period).mean()

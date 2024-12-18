@@ -22,6 +22,17 @@ def create_and_save_plot(data, ticker, period, filename=None):
     plt.title(f"{ticker} Цена акций с течением времени")
     plt.xlabel("Дата")
     plt.ylabel("Цена")
+    """ Выполняю построение графического изображения перекупленности или перепроданности
+    акций. Граница отсечки 30% - низ и 70% - верх"""
+
+    plt.legend()
+    plt.figure(figsize=(10, 6))
+    plt.plot(data.index, data['RSI'], label='RSI', color='yellow')
+    plt.axhline(70, linestyle='--', alpha=0.5, color='red')
+    plt.axhline(30, linestyle='--', alpha=0.5, color='green')
+    plt.title(f"RSI для {ticker}")
+    plt.xlabel("Дата")
+    plt.ylabel("RSI")
     plt.legend()
 
     if filename is None:
