@@ -41,10 +41,10 @@ def export_data_to_csv(data, filename):
     return filename
 
 
-def rsi_calculate(data, period = 14):
+def rsi_calculate(data, period=14):
     diff_axis = data['Close'].diff()
     upemane = (diff_axis.where(diff_axis > 0, 0)).rolling(window=period).mean()
     downmane = (-diff_axis.where(diff_axis < 0, 0)).rolling(window=period).mean()
     rs = upemane/downmane
-    rsi = 100 - (100/(1 + rs))
-    return rsi
+    data['RSI'] = 100 - (100/(1 + rs))
+    return data
