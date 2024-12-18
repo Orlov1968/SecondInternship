@@ -16,6 +16,7 @@ def main():
     # Add moving average to the data
     stock_data = dd.add_moving_average(stock_data)
 
+    # Add RSI to the data
     stock_data = dd.rsi_calculate(stock_data)
 
     # Plot the data
