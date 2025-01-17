@@ -1,8 +1,12 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 
+print(plt.style.available)
 
-def create_and_save_plot(data, ticker, period, filename=None):
+
+def create_and_save_plot(data, ticker, period, style, filename=None):
+    """Пользовательский стиль графика будет отображаться"""
+    plt.style.use(style)
     plt.figure(figsize=(10, 6))
 
     if 'Date' not in data:
